@@ -101,5 +101,23 @@ class CalculatorTest {
 
     assertEquals(expected, actual);
    }
+
+   @Test
+   @DisplayName("c soll nur aktuelle Eingabe löschen")
+   void testPressClearKey(){
+    Calculator calc = new Calculator();
+
+
+    calc.pressDigitKey(8);
+    calc.pressBinaryOperationKey("+");
+    calc.pressDigitKey(2);
+    calc.pressClearKey();
+    calc.pressEqualsKey();
+
+    String expected = "8";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+   }
 }
 
