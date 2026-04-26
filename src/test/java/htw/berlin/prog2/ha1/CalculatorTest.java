@@ -1,9 +1,8 @@
 package htw.berlin.prog2.ha1;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Retro calculator")
 class CalculatorTest {
@@ -89,6 +88,18 @@ class CalculatorTest {
     }
 
 
-    //TODO hier weitere Tests erstellen
+   @Test
+   @DisplayName("soll bei Gleich ohne Operation nichts verändern")
+   void testEqualsWithoutOperation(){
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(5);
+    calc.pressEqualsKey();
+
+    String expected = "5";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+   }
 }
 
